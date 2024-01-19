@@ -33,7 +33,8 @@ function BmiCalculator() {
 
 	return ( 
 		<div className="container"> 
-			<h1>GeeksforGeeks BMI Calculator</h1> 
+        <h3>BMI Calculator</h3>
+
 			<div className="input-container"> 
 				<label htmlFor="height">Enter Your Height (cm):</label> 
 				<input 
