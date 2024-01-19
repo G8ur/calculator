@@ -2,6 +2,7 @@
 import React, { useState } from 'react'; 
 import '../App.css'
 
+
 function BmiCalculator() { 
 	const [heightValue, setHeightValue] = useState(''); 
 	const [weightValue, setWeightValue] = useState(''); 

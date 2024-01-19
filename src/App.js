@@ -1,20 +1,16 @@
 
-import './App.css';
-import BmiCalculator from './components/bmiCalculator';
-import React, { useState } from 'react';
+import "./App.css";
+import BmiCalculator from "./components/bmiCalculator";
+import React, { useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import Navbar from "./components/Navbar";
 
 function App() {
-  const [showBmiCalculator, setShowBmiCalculator] = useState(false);
-
-  const handleButtonClick = () => {
-    setShowBmiCalculator(true);
-  };
-
   return (
-    <div>
-      <button onClick={handleButtonClick}>Open BMI Calculator</button>
-      {showBmiCalculator && <BmiCalculator />}
-    </div>
+    <>
+    <Navbar/>
+  
+    </>
   );
 }
 
