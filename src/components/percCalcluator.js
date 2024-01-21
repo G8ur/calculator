@@ -1,47 +1,78 @@
+
 import React, { useState } from 'react';
-import '../App.css'
 
-const PercentageCGPACalculator = () => {
-  const [percentage, setPercentage] = useState('');
-  const [cgpa, setCGPA] = useState('');
-  const [result, setResult] = useState('');
+const GradeConverter = () => {
+  const [percentage, setPercentage] = useState(0);
+  const [cgpa, setCGPA] = useState(0);
+  const [gpa, setGPA] = useState(0);
 
-  const calculateCGPA = () => {
-    const calculatedCGPA = parseFloat(percentage) / 9.5;
-    setResult(`CGPA: ${calculatedCGPA.toFixed(2)}`);
+  const convertToCGPA = () => {
+    let convertedCGPA;
+    if (percentage > 95) {
+      convertedCGPA = 10;
+    } else {
+      convertedCGPA = (percentage / 9.5).toFixed(2);
+    }
+    setCGPA(isNaN(convertedCGPA) ? 0 : convertedCGPA);
   };
 
-  const calculatePercentage = () => {
-    const calculatedPercentage = parseFloat(cgpa) * 9.5;
-    setResult(`Percentage: ${calculatedPercentage.toFixed(2)}%`);
+  const convertToGPA = () => {
+    const convertedGPA = (percentage / 100) * 4.0;
+    setGPA(isNaN(convertedGPA) ? 0 : convertedGPA.toFixed(2));
+  };
+
+  const convertToPercentage = () => {
+    const convertedPercentage = cgpa * 9.5;
+    setPercentage(isNaN(convertedPercentage) ? 0 : convertedPercentage.toFixed(2));
+  };
+
+  const convertCGPAToGPA = () => {
+    const convertedGPA = cgpa * 0.1;
+    setGPA(isNaN(convertedGPA) ? 0 : convertedGPA.toFixed(2));
+  };
+
+  const convertGPAtoCGPA = () => {
+    const convertedCGPA = gpa * 10;
+    setCGPA(isNaN(convertedCGPA) ? 0 : convertedCGPA.toFixed(2));
   };
 
   return (
-  <div className='container'> 
-      <div className="input-container">
-      <label htmlFor="height">Enter Percentage</label> 
+    <div>
+      <h1>Grade Converter</h1>
+      <div>
+        <label>Percentage:</label>
         <input
-          type="text"
+          type="number"
           value={percentage}
-          onChange={(e) => setPercentage(e.target.value)}
+          onChange={(e) => setPercentage(parseFloat(e.target.value))}
         />
-      
-      <button className="calculate-btn" onClick={calculateCGPA}>Convert to CGPA</button>
+        <button onClick={convertToCGPA}>Convert to CGPA</button>
+        <button onClick={convertToGPA}>Convert to GPA</button>
       </div>
-      <div className='input-container'>
-      <label htmlFor="height">Enter CGPA</label> 
+      <div>
+        <label>CGPA:</label>
         <input
-          type="text"
+          type="number"
           value={cgpa}
-          onChange={(e) => setCGPA(e.target.value)}
+          onChange={(e) => setCGPA(parseFloat(e.target.value))}
         />
-     
-      <button onClick={calculatePercentage}>Convert to Percentage</button>
-
-      <p>{result}</p>
+        <button onClick={convertToPercentage}>Convert to Percentage</button>
+        <button onClick={convertCGPAToGPA}>Convert to GPA</button>
+      </div>
+      <div>
+        <label>GPA:</label>
+        <input
+          type="number"
+          value={gpa}
+          onChange={(e) => setGPA(parseFloat(e.target.value))}
+        />
+        <button onClick={convertGPAtoCGPA}>Convert to CGPA</button>
+        {/* GPA does not have a direct conversion to percentage */}
+      </div>
     </div>
-  </div>
   );
 };
 
-export default PercentageCGPACalculator;
+export default GradeConverter;
+
+

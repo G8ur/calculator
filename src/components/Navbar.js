@@ -2,7 +2,7 @@ import { BrowserRouter, NavLink, Route,  Routes} from 'react-router-dom';
 import  React from 'react';
 import '../css/nav.css';
 import BmiCalculator from './bmiCalculator';
-import PercentageCGPACalculator from './percCalcluator';
+import GradeConverter from './percCalcluator';
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = React.useState(false);
@@ -40,7 +40,7 @@ const Navbar = () => {
       <Routes>
       {/* <Route exact path="/" element={Home} /> */}
        <Route path="/bmi-calculator" element={<BmiCalculator/>} />
-        <Route path="/percentage-cgpa-calculator" element={<PercentageCGPACalculator/>} />
+        <Route path="/percentage-cgpa-calculator" element={<GradeConverter/>} />
         {/* <Route path="/about" component={About} /> */}
        {/* <Route path="/contact" component={Contact} /> */} 
      </Routes>
