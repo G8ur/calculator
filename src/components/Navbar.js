@@ -3,6 +3,8 @@ import  React from 'react';
 import '../css/nav.css';
 import BmiCalculator from './bmiCalculator';
 import GradeConverter from './percCalcluator';
+import CurrencyConverter from './exchangeApi';
+import ScientificCalculator from './sciCalculator';
 
 const Navbar = () => {
   const [showNavbar, setShowNavbar] = React.useState(false);
@@ -29,10 +31,10 @@ const Navbar = () => {
               <NavLink to="/percentage-cgpa-calculator">Percentage</NavLink>
             </li>
             <li>
-              <NavLink to="/about">About</NavLink>
+              <NavLink to="/currency-converter">CurrencyConverter</NavLink>
             </li>
             <li>
-              <NavLink to="/contact">Contact</NavLink>
+              <NavLink to="/calculator">Calculator</NavLink>
             </li>
           </ul>
         </div>
@@ -41,8 +43,8 @@ const Navbar = () => {
       {/* <Route exact path="/" element={Home} /> */}
        <Route path="/bmi-calculator" element={<BmiCalculator/>} />
         <Route path="/percentage-cgpa-calculator" element={<GradeConverter/>} />
-        {/* <Route path="/about" component={About} /> */}
-       {/* <Route path="/contact" component={Contact} /> */} 
+        <Route path="/currency-converter" element={<CurrencyConverter />} />
+       <Route path="/calculator" element={<ScientificCalculator/>} /> 
      </Routes>
     </nav>
      

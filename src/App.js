@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import ScientificCalculator from "./components/sciCalculator";
+import CurrencyConverter from "./components/exchangeApi";
 
 
 
