@@ -15,6 +15,7 @@ function App() {
     <>
 
     <Navbar/>
+    {/* <h1 className="text-xl bg-slate-400"> hwllo</h1> */}
     {/* <ScientificCalculator/> */}
 
   
